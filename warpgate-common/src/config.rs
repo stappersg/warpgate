@@ -1,3 +1,4 @@
+use bytes::Bytes;
 use poem_openapi::Object;
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
@@ -89,6 +90,11 @@ pub enum UserAuthCredential {
     Password { hash: Secret<String> },
     #[serde(rename = "publickey")]
     PublicKey { key: Secret<String> },
+    #[serde(rename = "otp")]
+    TOTP {
+        #[serde(with = "crate::helpers::serde_base64_secret")]
+        key: Secret<Bytes>,
+    },
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
