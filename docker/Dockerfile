@@ -26,7 +26,7 @@ RUN just npm ci \
     && just npm run build \
     && cargo build --features mysql,postgres --release
 
-FROM debian:bullseye-20260316@sha256:943d97fa707482c24e1bc2bdd0b0adc45f75eb345c61dc4272c4157f9a2cc9cc
+FROM debian:bullseye-20260505@sha256:0853c358aa50eb8ee8661afd9449652600656eda293c8b84ecddfe0481cbdb14
 LABEL maintainer=heywoodlh
 ARG USER_ID=1000
 
